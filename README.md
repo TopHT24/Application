@@ -7,7 +7,7 @@ It’s built as a University project to get familiar with server-side JavaScript
 
 ## ⚫ Installation and Setup (Terminal) 
 
-### 1. Clone repo : git clone <repo link> , cd <App folder name>
+### 1. Clone repo : git clone repo_link , cd app_name
 ### 2. Get dependencies : npm install 
 ### 3. Run (with NodeJS) : npm start , visit [http://localhost:3000] 
 ###    Run(with electron) : node server.js , cd electron , npm start 
