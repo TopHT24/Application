@@ -1,0 +1,67 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Shopping Cart - Handicraft Store")
+    title= title || 'Shopping Cart'
+    link(rel="stylesheet" href="/css/styles.css")
+    link(rel="icon" type="image/x-icon" href="/favicon.ico")
+  
+  body
+    // Navigation
+    header.header
+      nav.navbar
+        .container
+          a.logo(href="/") 🛍️ Handicraft Store
+          .nav-links
+            a(href="/") Home
+            a(href="/#categories") Categories
+            a(href="/about") About
+            a.cart-link(href="/cart" style="position: relative;")
+              | 🛒 Cart
+              span.cart-badge 0
+    
+    // Main Content
+    main.cart-page
+      .cart-header
+        h1 Shopping Cart
+        .cart-actions
+          button.btn.btn-secondary#continue-shopping Continue Shopping
+          button.btn.btn-danger#clear-cart Clear Cart
+      
+      .cart-container
+        // Cart Items
+        .cart-items-section
+          #empty-cart.empty-cart(style="display: none;")
+            .empty-cart-icon 🛒
+            h2 Your cart is empty
+            p Start adding some amazing handcrafted products!
+            a.btn.btn-primary(href="/") Browse Products
+          
+          #cart-items.cart-items
+            // Cart items will be loaded here by JavaScript
+        
+        // Cart Summary
+        #cart-summary.cart-summary(style="display: none;")
+          // Summary will be loaded here by JavaScript
+    
+    // Footer
+    footer.footer
+      .container
+        p &copy; 2024 Handicraft Store. All rights reserved.
+        p Made with ❤️ for artisans worldwide
+    
+    // Scripts - IMPORTANT: app.js must come before cart.js
+    script(src="/js/app.js")
+    script(src="/js/cart.js")
+    
+    // Add event listeners after scripts load
+    script.
+      document.getElementById('continue-shopping')?.addEventListener('click', () => {
+        window.location.href = '/';
+      });
+      
+      document.getElementById('clear-cart')?.addEventListener('click', async () => {
+        await clearEntireCart();
+      });

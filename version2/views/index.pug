@@ -1,0 +1,113 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Handicraft Store - Unique handmade products from around the world")
+    title= title || 'Handicraft Store'
+    link(rel="stylesheet" href="/css/styles.css")
+    link(rel="stylesheet" href="/css/home.css")
+    link(rel="icon" type="image/x-icon" href="/favicon.ico")
+  
+  body
+    // Navigation
+    header.header
+      nav.navbar
+        .container
+          a.logo(href="/") 🛍️ Handicraft Store
+          .nav-links
+            a(href="/#hero") Home
+            a(href="/#categories") Categories
+            a(href="/about") About
+            a.cart-link(href="/cart" style="position: relative;")
+              | 🛒 Cart
+              span.cart-badge 0
+    
+    // Hero Section
+    section#hero.hero
+      .container
+        .hero-content
+          h1.hero-title Discover Unique Handcrafted Treasures
+          p.hero-subtitle Authentic handicrafts from artisans around the world
+          .search-container
+            input#search-input(type="text" placeholder="Search for products..." class="search-input")
+            #search-results.search-results
+          button.btn.btn-primary.btn-large(onclick="smoothScroll('categories')") Explore Categories
+    
+    // Categories Section
+    section#categories.categories
+      .container
+        h2.section-title Browse by Category
+        .categories-grid
+          each category in categories
+            .category-card(onclick=`window.location.href='/category/${category}'`)
+              .category-icon
+                case category
+                  when 'Iran'
+                    | 🏺
+                  when 'Caribbean'
+                    | 🌴
+                  when 'Taiwanese'
+                    | 🎋
+              h3= category
+              p= `Explore ${category} Handicrafts`
+              span.category-arrow →
+    
+    // Features Section
+    section#features.features
+      .container
+        h2.section-title Why Choose Us
+        .features-grid
+          .feature-card
+            .feature-icon ✓
+            h3 Authentic Products
+            p Every item is handcrafted by skilled artisans
+          
+          .feature-card
+            .feature-icon 🚚
+            h3 Worldwide Shipping
+            p We deliver to your doorstep anywhere in the world
+          
+          .feature-card
+            .feature-icon 💯
+            h3 Quality Guaranteed
+            p 100% satisfaction or your money back
+          
+          .feature-card
+            .feature-icon 🤝
+            h3 Support Artisans
+            p Your purchase directly supports local craftspeople
+    
+    // Call to Action
+    section#cta.cta
+      .container
+        h2 Start Your Collection Today
+        p Discover unique pieces that tell a story
+        a.btn.btn-primary.btn-large(href="/#categories") Shop Now
+    
+    // Footer
+    footer.footer
+      .container
+        .footer-content
+          .footer-section
+            h3 Handicraft Store
+            p Connecting artisans with the world
+          
+          .footer-section
+            h3 Quick Links
+            ul
+              li: a(href="/#categories") Categories
+              li: a(href="/about") About Us
+              li: a(href="/cart") Shopping Cart
+          
+          .footer-section
+            h3 Contact
+            p Email: info@handicraftstore.com
+            p Phone: +1 (555) 123-4567
+        
+        .footer-bottom
+          p &copy; 2024 Handicraft Store. All rights reserved.
+          p Made with ❤️ for artisans worldwide
+    
+    // Scripts
+    script(src="/js/app.js")

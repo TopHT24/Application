@@ -1,0 +1,65 @@
+{
+    "name": "handicraft-store",
+    "version": "2.0.0",
+    "description": "Online store for handcrafted products with enhanced security and AI features",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev": "NODE_ENV=development nodemon server.js",
+      "test": "jest --coverage --verbose",
+      "test:watch": "jest --watch",
+      "test:api": "jest tests/api --verbose",
+      "test:services": "jest tests/services --verbose",
+      "test:unit": "jest tests/unit --verbose",
+      "test:integration": "jest tests/integration --verbose"
+    },
+    "keywords": [
+      "handicraft",
+      "ecommerce",
+      "express",
+      "nodejs"
+    ],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^5.1.0",
+      "express-session": "^1.18.0",
+      "helmet": "^8.1.0",
+      "morgan": "^1.10.1",
+      "pug": "^3.0.3"
+    },
+    "devDependencies": {
+      "jest": "^29.7.0",
+      "supertest": "^6.3.3",
+      "nodemon": "^3.0.1",
+      "@types/jest": "^29.5.0"
+    },
+    "jest": {
+      "testEnvironment": "node",
+      "coverageDirectory": "coverage",
+      "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+      "collectCoverageFrom": [
+        "data/**/*.js",
+        "routes/**/*.js",
+        "services/**/*.js",
+        "middleware/**/*.js",
+        "!**/node_modules/**"
+      ],
+      "testMatch": [
+        "**/tests/**/*.test.js"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "branches": 70,
+          "functions": 70,
+          "lines": 70,
+          "statements": 70
+        }
+      }
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
