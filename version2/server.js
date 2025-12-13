@@ -141,17 +141,17 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 
+if(require.main === module){
 app.listen(PORT, HOST, () => {
     console.log(`
-    ╔════════════════════════════════════════════╗
-    ║   Handicraft Store Server                  ║
-    ╠════════════════════════════════════════════╣
-    ║   Server running on http://localhost:${PORT}  ║
-    ║   Environment: ${process.env.NODE_ENV || 'development'}                ║
-    ║   Press Ctrl+C to stop                     ║
-    ╚════════════════════════════════════════════╝
+   
+    	 Server running on http://localhost:${PORT}  
+    	 Environment: ${process.env.NODE_ENV || 'development'}               
+    	                 
+    
     `);
 });
+}
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
