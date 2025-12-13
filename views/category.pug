@@ -32,10 +32,11 @@ html(lang="en")
               hr
               p.card-description.text-muted= product.description
               .text-center.mt-2
-                a.btn.btn-primary(href="/buy/#{product.name}") Buy Now
+                a.btn.btn-primary(type="button", disabled=true, title="This feature is disabled in the demo") Buy Now
 
     footer.footer-custom.py-4.mt-5
       .container.text-center
         p.mb-0 &copy; 2024 Mozhan Art - Bringing Art to Life
 
     script(src="/js/scripts.js")
+
